@@ -1,4 +1,4 @@
-package com.proyecto.crud.entity;
+package com.proyecto.crud.models.schemas;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -73,7 +73,7 @@ public class Cliente {
         return edad;
     }
 
-    public List<com.proyecto.crud.entity.Venta> getVenta() {
+    public List<com.proyecto.crud.models.schemas.Venta> getVenta() {
         return Venta;
     }
 
@@ -101,7 +101,7 @@ public class Cliente {
         this.edad = edad;
     }
 
-    public void setVenta(List<com.proyecto.crud.entity.Venta> venta) {
+    public void setVenta(List<com.proyecto.crud.models.schemas.Venta> venta) {
         Venta = venta;
     }
 

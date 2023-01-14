@@ -1,6 +1,6 @@
 package com.proyecto.crud.controller;
 
-import com.proyecto.crud.entity.Cliente;
+import com.proyecto.crud.models.schemas.Cliente;
 import com.proyecto.crud.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

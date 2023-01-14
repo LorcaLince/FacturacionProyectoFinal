@@ -1,4 +1,4 @@
-package com.proyecto.crud.entity;
+package com.proyecto.crud.models.schemas;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -65,7 +65,7 @@ public class Venta {
         return cantidad;
     }
 
-    public com.proyecto.crud.entity.Cliente getCliente() {
+    public com.proyecto.crud.models.schemas.Cliente getCliente() {
         return Cliente;
     }
 
@@ -89,7 +89,7 @@ public class Venta {
         this.cantidad = cantidad;
     }
 
-    public void setCliente(com.proyecto.crud.entity.Cliente cliente   ) {
+    public void setCliente(com.proyecto.crud.models.schemas.Cliente cliente   ) {
         Cliente = cliente;
     }
 

@@ -1,4 +1,4 @@
-package com.proyecto.crud.entity;
+package com.proyecto.crud.models.schemas;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -77,7 +77,7 @@ public class Producto {
         return ClientexD;
     }
 
-    public List<com.proyecto.crud.entity.Venta> getVenta() {
+    public List<com.proyecto.crud.models.schemas.Venta> getVenta() {
         return Venta;
     }
 
@@ -105,7 +105,7 @@ public class Producto {
         ClientexD = clientexD;
     }
 
-    public void setVenta(List<com.proyecto.crud.entity.Venta> venta) {
+    public void setVenta(List<com.proyecto.crud.models.schemas.Venta> venta) {
         Venta = venta;
     }
 

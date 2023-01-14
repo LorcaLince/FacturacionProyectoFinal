@@ -1,6 +1,6 @@
 package com.proyecto.crud.service;
 
-import com.proyecto.crud.entity.Producto;
+import com.proyecto.crud.models.schemas.Producto;
 import com.proyecto.crud.repository.ProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
