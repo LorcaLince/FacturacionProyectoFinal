@@ -1,12 +1,9 @@
 package com.proyecto.crud.models.requests;
 
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import com.proyecto.crud.models.schemas.Cliente;
-import com.proyecto.crud.models.schemas.Venta;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.OneToMany;
+
 
 import java.util.List;
 import java.util.Objects;

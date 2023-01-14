@@ -1,14 +1,11 @@
 package com.proyecto.crud.service;
 
-import com.proyecto.crud.models.requests.VentaRequest;
-import com.proyecto.crud.models.schemas.Cliente;
-import com.proyecto.crud.models.schemas.Producto;
+
 import com.proyecto.crud.models.schemas.Venta;
-import com.proyecto.crud.repository.ClienteRepository;
-import com.proyecto.crud.repository.ProductoRepository;
+
 import com.proyecto.crud.repository.VentaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,11 +1,6 @@
 package com.proyecto.crud.models.requests;
 
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.proyecto.crud.models.schemas.Cliente;
-import com.proyecto.crud.models.schemas.Producto;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.ManyToOne;
 
 import java.util.Objects;
 
@@ -18,7 +13,7 @@ public class VentaRequest {
     private Cliente Cliente;
 
 
-    private Producto Producto;
+
     public VentaRequest() {}
     public VentaRequest(Long cod_venta, String descripcion, int precio, int cantidad) {
 
@@ -69,25 +64,18 @@ public class VentaRequest {
         Cliente = cliente;
     }
 
-    public static com.proyecto.crud.models.schemas.Producto getProducto() {
-        return Producto;
-    }
-
-    public void setProducto(com.proyecto.crud.models.schemas.Producto producto) {
-        Producto = producto;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         VentaRequest that = (VentaRequest) o;
-        return Float.compare(that.precio, precio) == 0 && Float.compare(that.cantidad, cantidad) == 0 && Objects.equals(cod_venta, that.cod_venta) && Objects.equals(descripcion, that.descripcion) && Objects.equals(Cliente, that.Cliente) && Objects.equals(Producto, that.Producto);
+        return Float.compare(that.precio, precio) == 0 && Float.compare(that.cantidad, cantidad) == 0 && Objects.equals(cod_venta, that.cod_venta) && Objects.equals(descripcion, that.descripcion) && Objects.equals(Cliente, that.Cliente);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(cod_venta, descripcion, precio, cantidad, Cliente, Producto);
+        return Objects.hash(cod_venta, descripcion, precio, cantidad, Cliente);
     }
 
     @Override
@@ -98,7 +86,6 @@ public class VentaRequest {
                 ", precio=" + precio +
                 ", cantidad=" + cantidad +
                 ", Cliente=" + Cliente +
-                ", Producto=" + Producto +
                 '}';
     }
 }
