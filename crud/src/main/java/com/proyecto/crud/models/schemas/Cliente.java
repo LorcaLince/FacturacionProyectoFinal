@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "CLIENTE")
+@Table(name = "Cliente")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Cliente {
 
@@ -30,11 +30,11 @@ public class Cliente {
     private long edad;
 
     @JsonManagedReference
-    @OneToMany(mappedBy = "clienteXD", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "Venta", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Venta> Venta;
 
     @JsonManagedReference
-    @OneToMany(mappedBy = "clienteXD", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "Producto", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Producto> Producto;
 
     public Cliente() {}

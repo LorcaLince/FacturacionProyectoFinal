@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "PRODUCTO")
+@Table(name = "Producto")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Producto {
     @Id
@@ -27,12 +27,12 @@ public class Producto {
     @Column(name = "EDAD")
     private int precio;
 
-    @JsonManagedReference
-    @OneToMany(mappedBy = "clienteXD", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+   @JsonManagedReference
+    @OneToMany(mappedBy = "ClienteXD", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Cliente> ClientexD;
 
-    @JsonManagedReference
-    @OneToMany(mappedBy = "clienteXD", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+   @JsonManagedReference
+    @OneToMany(mappedBy = "Venta", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Venta> Venta;
 
     public Producto() {}

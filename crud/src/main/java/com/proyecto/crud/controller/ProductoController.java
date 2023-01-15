@@ -12,7 +12,7 @@ import java.net.URI;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/producto")
+@RequestMapping("/Producto")
 public class ProductoController {
 
     @Autowired

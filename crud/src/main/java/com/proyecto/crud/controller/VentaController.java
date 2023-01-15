@@ -12,7 +12,7 @@ import java.net.URI;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/venta")
+@RequestMapping("/Venta")
 public class VentaController {
 
     @Autowired

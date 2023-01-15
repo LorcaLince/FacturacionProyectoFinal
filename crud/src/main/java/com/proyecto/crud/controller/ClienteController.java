@@ -11,8 +11,8 @@ import java.net.URI;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/cliente")
-public class ClienteController {
+@RequestMapping("/Cliente")
+public class ClienteController{
 
     @Autowired
     private ClienteService clienteService;
