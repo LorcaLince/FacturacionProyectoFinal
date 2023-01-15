@@ -11,7 +11,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 @Component
 public class ClienteAspect {
 
-    @Pointcut("execution(* org.example.demo14.controllers.ClienteControllerNico.*(..))")
+    @Pointcut("execution(* org.proyecto.crud.controller.ClienteController.*(..))")
     public void logMethod() {
     }
 
