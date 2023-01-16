@@ -19,18 +19,18 @@ public class ProductoService {
      * @param producto
      * @return
      */
-    public Producto guardar(Producto producto){
+    public Producto guardarProducto(Producto producto){
         return productoRepository.save(producto);
 
     }
-    public Optional<Producto> buscarPorId(Long cod_producto){
+    public Optional<Producto> buscarPorIdProducto(Long cod_producto){
         return productoRepository.findById(cod_producto);
     }
-    public List<Producto> todos(){
+    public List<Producto> productoTodos(){
         return productoRepository.findAll();
     }
 
-    public void borrarPorId(Long cod_producto){
+    public void borrarPorIdProducto(Long cod_producto){
         productoRepository.deleteById(cod_producto);
     }
 }

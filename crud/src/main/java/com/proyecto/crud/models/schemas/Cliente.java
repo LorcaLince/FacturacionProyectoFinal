@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "Cliente")
+@Table(name = "CLIENTE")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Cliente {
 
@@ -29,19 +29,14 @@ public class Cliente {
     @Column(name = "EDAD")
     private long edad;
 
-    @JsonManagedReference
-    @OneToMany(mappedBy = "Venta", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Venta> Venta;
 
-    @JsonManagedReference
-    @OneToMany(mappedBy = "Producto", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Producto> Producto;
 
     public Cliente() {}
 
     public Cliente(Long cliente_id, String nombre,String apellido,int dni, int edad) {
         this.cliente_id= cliente_id;
         this.nombre = nombre;
+        this.apellido = apellido;
         this.dni = dni;
         this. edad = edad;
 
@@ -49,6 +44,7 @@ public class Cliente {
 
     public Cliente(String nombre,String apellido,int dni, int edad) {
         this.nombre = nombre;
+        this.apellido = apellido;
         this.dni = dni;
         this. edad = edad;
     }
@@ -73,18 +69,6 @@ public class Cliente {
         return edad;
     }
 
-    public List<com.proyecto.crud.models.schemas.Venta> getVenta() {
-        return Venta;
-    }
-
-    public List<Producto> getProducto() {
-        return Producto;
-    }
-
-    public void setCliente_id(Long cliente_id) {
-        this.cliente_id = cliente_id;
-    }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -101,25 +85,17 @@ public class Cliente {
         this.edad = edad;
     }
 
-    public void setVenta(List<com.proyecto.crud.models.schemas.Venta> venta) {
-        Venta = venta;
-    }
-
-    public void setProducto(List<Producto> producto) {
-        Producto = producto;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Cliente cliente = (Cliente) o;
-        return cliente_id == cliente.cliente_id && dni == cliente.dni && edad == cliente.edad && Objects.equals(nombre, cliente.nombre) && Objects.equals(apellido, cliente.apellido) && Objects.equals(Venta, cliente.Venta) && Objects.equals(Producto, cliente.Producto);
+        return dni == cliente.dni && edad == cliente.edad && Objects.equals(cliente_id, cliente.cliente_id) && Objects.equals(nombre, cliente.nombre) && Objects.equals(apellido, cliente.apellido);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(cliente_id, nombre, apellido, dni, edad, Venta, Producto);
+        return Objects.hash(cliente_id, nombre, apellido, dni, edad);
     }
 
     @Override
@@ -130,10 +106,7 @@ public class Cliente {
                 ", apellido='" + apellido + '\'' +
                 ", dni=" + dni +
                 ", edad=" + edad +
-                ", Venta=" + Venta +
-                ", Producto=" + Producto +
                 '}';
     }
 }
-
 

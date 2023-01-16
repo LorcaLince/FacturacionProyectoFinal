@@ -8,33 +8,33 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "Producto")
+@Table(name = "PRODUCTO")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cod_producto;
 
-    @Column(name = "NOMBRE")
+    @Column(name = "codigo")
     private int codigo;
 
-    @Column(name = "APELLIDO")
+    @Column(name = "descripcion")
     private String descripcion ;
 
-    @Column(name = "DNI")
+    @Column(name = "cantidad")
     private int cantidad;
 
-    @Column(name = "EDAD")
+    @Column(name = "precio")
     private int precio;
 
-   @JsonManagedReference
-    @OneToMany(mappedBy = "ClienteXD", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+   /* @JsonManagedReference
+    @OneToMany( cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Cliente> ClientexD;
-
-   @JsonManagedReference
-    @OneToMany(mappedBy = "Venta", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+*/
+   /* @JsonManagedReference
+    @OneToMany( cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Venta> Venta;
-
+*/
     public Producto() {}
 
     public Producto(Long cod_producto, int codigo,String descripcion, int cantidad, int precio) {
@@ -46,7 +46,7 @@ public class Producto {
 
     }
 
-    public Producto(int codigo,String descripcion, Cliente clienteXD, int cantidad, int precio) {
+    public Producto(int codigo,String descripcion, int cantidad, int precio) {
         this.codigo = codigo;
         this.descripcion = descripcion;
         this. cantidad = cantidad;
@@ -73,13 +73,9 @@ public class Producto {
         return precio;
     }
 
-    public List<Cliente> getClientexD() {
-        return ClientexD;
-    }
 
-    public List<com.proyecto.crud.models.schemas.Venta> getVenta() {
-        return Venta;
-    }
+
+
 
     public void setCod_producto(Long cod_producto) {
         this.cod_producto = cod_producto;
@@ -101,25 +97,21 @@ public class Producto {
         this.precio = precio;
     }
 
-    public void setClientexD(List<Cliente> clientexD) {
-        ClientexD = clientexD;
-    }
 
-    public void setVenta(List<com.proyecto.crud.models.schemas.Venta> venta) {
-        Venta = venta;
-    }
+
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Producto producto = (Producto) o;
-        return cod_producto == producto.cod_producto && codigo == producto.codigo && cantidad == producto.cantidad && precio == producto.precio && Objects.equals(descripcion, producto.descripcion) && Objects.equals(ClientexD, producto.ClientexD) && Objects.equals(Venta, producto.Venta);
+        return cod_producto == producto.cod_producto && codigo == producto.codigo && cantidad == producto.cantidad && precio == producto.precio && Objects.equals(descripcion, producto.descripcion);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(cod_producto, codigo, descripcion, cantidad, precio, ClientexD, Venta);
+        return Objects.hash(cod_producto, codigo, descripcion, cantidad, precio);
     }
 
     @Override
@@ -130,8 +122,6 @@ public class Producto {
                 ", descripcion='" + descripcion + '\'' +
                 ", cantidad=" + cantidad +
                 ", precio=" + precio +
-                ", ClientexD=" + ClientexD +
-                ", Venta=" + Venta +
                 '}';
     }
 }

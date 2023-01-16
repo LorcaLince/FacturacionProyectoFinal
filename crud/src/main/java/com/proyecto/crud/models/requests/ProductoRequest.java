@@ -15,9 +15,7 @@ public class ProductoRequest {
     private int cantidad;
     private int precio;
 
-    private List<Cliente> ClientexD;
 
-    private List<com.proyecto.crud.models.schemas.Venta> Venta;
 
     public ProductoRequest() {
     }
@@ -71,33 +69,19 @@ public class ProductoRequest {
         this.precio = precio;
     }
 
-    public List<Cliente> getClientexD() {
-        return ClientexD;
-    }
 
-    public void setClientexD(List<Cliente> clientexD) {
-        ClientexD = clientexD;
-    }
-
-    public List<com.proyecto.crud.models.schemas.Venta> getVenta() {
-        return Venta;
-    }
-
-    public void setVenta(List<com.proyecto.crud.models.schemas.Venta> venta) {
-        Venta = venta;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ProductoRequest that = (ProductoRequest) o;
-        return codigo == that.codigo && cantidad == that.cantidad && precio == that.precio && Objects.equals(cod_producto, that.cod_producto) && Objects.equals(descripcion, that.descripcion) && Objects.equals(ClientexD, that.ClientexD) && Objects.equals(Venta, that.Venta);
+        return codigo == that.codigo && cantidad == that.cantidad && precio == that.precio && Objects.equals(cod_producto, that.cod_producto) && Objects.equals(descripcion, that.descripcion);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(cod_producto, codigo, descripcion, cantidad, precio, ClientexD, Venta);
+        return Objects.hash(cod_producto, codigo, descripcion, cantidad, precio);
     }
 
     @Override
@@ -108,8 +92,7 @@ public class ProductoRequest {
                 ", descripcion='" + descripcion + '\'' +
                 ", cantidad=" + cantidad +
                 ", precio=" + precio +
-                ", ClientexD=" + ClientexD +
-                ", Venta=" + Venta +
+
                 '}';
     }
 }

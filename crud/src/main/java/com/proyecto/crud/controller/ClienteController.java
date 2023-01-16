@@ -7,17 +7,18 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
 import java.net.URI;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/Cliente")
+
 public class ClienteController{
 
     @Autowired
     private ClienteService clienteService;
 
-    @PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @PostMapping(value = "/cliente", consumes = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<?> crear(@RequestBody Cliente cliente) {
         try {
             Cliente clienteCreado = clienteService.guardar(cliente);
@@ -27,7 +28,7 @@ public class ClienteController{
         }
     }
 
-    @GetMapping(value = "/{cliente_id}", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(value = "/cliente/{cliente_id}", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<?> buscarPorId(@PathVariable(name = "cliente_id") Long cliente_id) {
         Optional<Cliente> posibleCliente = clienteService.buscarPorId(cliente_id);
 
@@ -38,13 +39,14 @@ public class ClienteController{
         }
     }
 
-    @GetMapping(value = "/todos", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(value = "/cliente/todos", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<?> todos() {
         return ResponseEntity.ok().body(clienteService.todos());
     }
 
-    @DeleteMapping("/{cliente_id}")
+    @DeleteMapping("/cliente/{cliente_id}")
     public ResponseEntity<?> borrarPorId(@PathVariable(name = "cliente_id") Long cliente_id) {
+        clienteService.borrarPorId(cliente_id);
         return ResponseEntity.ok().body("Cliente con ID=" + cliente_id + "ha sido borrado");
     }
 

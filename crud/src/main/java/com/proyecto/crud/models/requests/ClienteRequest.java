@@ -12,9 +12,7 @@ public class ClienteRequest {
 
     private long edad;
 
-    private List<com.proyecto.crud.models.schemas.Venta> Venta;
 
-    private List<com.proyecto.crud.models.schemas.Producto> Producto;
 
     public ClienteRequest() {
     }
@@ -67,33 +65,19 @@ public class ClienteRequest {
         this.edad = edad;
     }
 
-    public List<com.proyecto.crud.models.schemas.Venta> getVenta() {
-        return Venta;
-    }
 
-    public void setVenta(List<com.proyecto.crud.models.schemas.Venta> venta) {
-        Venta = venta;
-    }
-
-    public List<com.proyecto.crud.models.schemas.Producto> getProducto() {
-        return Producto;
-    }
-
-    public void setProducto(List<com.proyecto.crud.models.schemas.Producto> producto) {
-        Producto = producto;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ClienteRequest that = (ClienteRequest) o;
-        return dni == that.dni && edad == that.edad && Objects.equals(cliente_id, that.cliente_id) && Objects.equals(nombre, that.nombre) && Objects.equals(apellido, that.apellido) && Objects.equals(Venta, that.Venta) && Objects.equals(Producto, that.Producto);
+        return dni == that.dni && edad == that.edad && Objects.equals(cliente_id, that.cliente_id) && Objects.equals(nombre, that.nombre) && Objects.equals(apellido, that.apellido);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(cliente_id, nombre, apellido, dni, edad, Venta, Producto);
+        return Objects.hash(cliente_id, nombre, apellido, dni, edad);
     }
 
     @Override
@@ -104,8 +88,6 @@ public class ClienteRequest {
                 ", apellido='" + apellido + '\'' +
                 ", dni=" + dni +
                 ", edad=" + edad +
-                ", Venta=" + Venta +
-                ", Producto=" + Producto +
                 '}';
     }
 }

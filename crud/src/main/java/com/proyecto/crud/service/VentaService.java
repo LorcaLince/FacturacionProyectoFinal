@@ -22,7 +22,7 @@ public class VentaService {
      * @param venta
      * @return
      */
-    public Venta guardar(Venta venta){
+    public Venta guardarVenta(Venta venta){
         return ventaRepository.save(venta);
 
     }

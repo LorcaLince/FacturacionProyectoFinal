@@ -12,23 +12,23 @@ import java.net.URI;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/Venta")
+
 public class VentaController {
 
     @Autowired
     private VentaService ventaService;
 
-    @PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<?> crear(@RequestBody Venta venta) {
+    @PostMapping(value = "/venta" ,consumes = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<?> crearVenta(@RequestBody Venta venta) {
         try {
-            Venta ventaCreada = ventaService.guardar(venta);
+            Venta ventaCreada = ventaService.guardarVenta(venta);
             return ResponseEntity.created(URI.create("")).body(ventaCreada);
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body(e.getStackTrace());
         }
     }
 
-    @GetMapping(value = "/{venta_id}", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(value = "/venta/{venta_id}", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<?> buscarPorId(@PathVariable(name = "venta_id") Long cod_venta) {
         Optional<Venta> posibleVenta = ventaService.buscarPorId(cod_venta);
 
@@ -39,41 +39,16 @@ public class VentaController {
         }
     }
 
-    @GetMapping(value = "/todos", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(value = "/venta/todas", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<?> todos() {
         return ResponseEntity.ok().body(ventaService.todos());
     }
 
-    @DeleteMapping("/{producto_id}")
+    @DeleteMapping("/venta/{venta_id}")
     public ResponseEntity<?> borrarPorId(@PathVariable(name = "venta_id") Long cod_venta) {
         return ResponseEntity.ok().body("Venta con ID=" + cod_venta + "ha sido borrada");
     }
 
-    @PutMapping(consumes = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<?> modificar(@RequestBody Venta venta) {
-        try {
-            Optional<Venta> posibleVenta = ventaService.buscarPorId(venta.getCod_venta());
 
-            if (posibleVenta.isPresent()) {
-                Venta ventaGuardada = posibleVenta.get();
-                ventaGuardada.setCantidad(venta.getCantidad());
-                ventaGuardada.setDescripcion(venta.getDescripcion());
-                ventaGuardada.setPrecio(venta.getPrecio());
-                ventaGuardada.setProducto(venta.getProducto());
-                ventaGuardada.setCliente(venta.getCliente());
-
-
-                ventaService.guardar(ventaGuardada);
-
-                return ResponseEntity.ok().body(ventaGuardada);
-
-
-            } else {
-                return ResponseEntity.notFound().build();
-            }
-        } catch (Exception e) {
-            return ResponseEntity.internalServerError().body(e.getStackTrace());
-        }
-    }
 }
 
