@@ -26,7 +26,7 @@ public class Venta {
 
 
     @JsonBackReference
-    @ManyToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER)
     private Cliente Cliente;
 
     @JsonBackReference
